@@ -53,7 +53,7 @@ The built server can then be run with `./app`
 
 It mainly follows an app created with `Crystal init app app`
 
-```
+```bash
 client # client side code
 client/tags # put your riot tags here
 client/app.coffee # loads tags here, mounts app
