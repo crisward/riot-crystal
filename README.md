@@ -14,6 +14,7 @@ Stack includes
 
 ```
 git clone git@github.com:crisward/riot-crystal.git
+cd riot-crystal
 crytals deps
 npm install
 ```
@@ -28,9 +29,9 @@ Livereload will refresh your browser on file change if a Livereload
 plugin is installed.
 
 ```
-cd riot-crystal
 crystal run src/app.cr 
 ```
+
 In another terminal window run
 
 ```
