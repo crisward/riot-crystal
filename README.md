@@ -1,31 +1,49 @@
-# postit
+# Riot Crytal
 
-TODO: Write a description here
+Been playing around with crystal. Just wanted to create a starting point.
+This is very oppinionated and may not be to everyones (or anyones) taste.
+
+Stack includes
+
+* [Crystal - server language](https://crystal-lang.org/)
+* [Kemal - server framework](http://kemalcr.com/)
+* [Riot - client framework](http://riotjs.com/)
+* [Coffeescript](http://coffeescript.org/) / [Pug(Jade)](http://jade-lang.com/) / [Stylus](http://stylus-lang.com/) for shorthand code on the client
 
 ## Installation
 
-
-TODO: Write installation instructions here
-
+```
+git clone git@github.com:crisward/riot-crystal.git
+crytals deps
+npm install
+```
 
 ## Usage
 
+### During development
 
+The below will run a server on `127.0.0.1:3000`
+It will watch for changes in js and stylus files and recompile.
+Livereload will refresh your browser on file change if a Livereload
+plugin is installed.
 
-TODO: Write usage instructions here
+```
+cd riot-crystal
+crystal run src/app.cr 
+```
+In another terminal window run
 
-## Development
+```
+npm run watch
+```
 
-TODO: Write development instructions here
+### Build
 
-## Contributing
+The below will build and minify your css and js.
+It will also create a optimised compiled binary for the server
 
-1. Fork it ( https://github.com/[your-github-name]/postit/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
+```
+npm run build && crystal build --release src/app.cr
+```
 
-## Contributors
-
-- [[your-github-name]](https://github.com/[your-github-name]) Cris Ward - creator, maintainer
+The built server can then be run with `./app`

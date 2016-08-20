@@ -1,7 +1,7 @@
-require "./postit/*"
+require "./app/*"
 require "kemal"
 
-module Postit
+module App
   
   get "/api" do
     "api here"
