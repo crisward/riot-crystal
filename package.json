@@ -4,12 +4,50 @@
   "description": "TODO: Write a description here",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "livereload": "livereload ./public/resources/",
+    "css": "./node_modules/.bin/stylus --include-css -u nib -u autoprefixer-stylus --with \"{ browsers: ['> 5%'] }\" client/app.styl  -o public/resources/app.css",
+    "js": "./node_modules/.bin/browserify ./client/app.coffee -d -p [minifyify --uglify [--mangle 0] --map /resources/app.map.json --output public/resources/app.map.json] -o public/resources/app.js",
+    "js:watch": "./node_modules/.bin/watchify ./client/app.coffee -v -o public/resources/app.js",
+    "css:watch": "npm run css -s -- -w",
+    "build": "npm run css -s & npm run js",
+    "watch": "npm run css:watch & npm run js:watch & npm run livereload"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "riot": "^2.5.0"
+  "browserify": {
+    "debug": true,
+    "transform": [
+      [
+        "riotify",
+        {
+          "expr": false,
+          "type": "coffee",
+          "template": "pug"
+        }
+      ],
+      [
+        "coffeeify",
+        {
+          "extension": ".coffee"
+        }
+      ]
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.9.4",
+    "browserify": "^13.1.0",
+    "coffee-script": "^1.10.0",
+    "coffeeify": "^2.0.1",
+    "livereload": "^0.5.0",
+    "minifyify": "^7.3.3",
+    "nib": "^1.1.2",
+    "pug": "^0.1.0",
+    "riot": "^2.5.0",
+    "riotify": "^1.0.1",
+    "stylus": "^0.54.5",
+    "uglifyify": "^3.0.2",
+    "watchify": "^3.7.0"
   }
 }
