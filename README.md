@@ -48,3 +48,16 @@ npm run build && crystal build --release src/app.cr
 ```
 
 The built server can then be run with `./app`
+
+### App Structure
+
+It mainly follows an app created with `Crystal init app app`
+
+```
+client # client side code
+client/tags # put your riot tags here
+client/app.coffee # loads tags here, mounts app
+public # public folder
+spec # crystal tests
+src # crysal source code
+```
