@@ -1,7 +1,4 @@
-/doc/
-/libs/
-/.crystal/
-/.shards/
+lib
 node_modules
-
-
+public/resources
+.shards
